@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/kalenikov/job4j_passport.svg?branch=main)](https://app.travis-ci.com/kalenikov/job4j_passport)
+[![Build Status](https://app.travis-ci.com/kalenikov/job4j_passport.svg?branch=master)](https://app.travis-ci.com/kalenikov/job4j_passport)
 
 # job4j_passport
 
