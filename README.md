@@ -2,24 +2,13 @@
 
 # job4j_passport
 
-Создать сервис, используя Spring Boot и архитектуру REST. Для хранения можно использовать любую БД.
+Demo project about checking expired passports in a microservice system.
 
-Сервис должен заниматься управлением паспортами. Доменной моделью будет - паспорт.
+The following methods are supported:
 
-Должны поддерживаться следующие методы:
-
-[comment]: <> (- /save, сохранить данные паспорта)
-
-[comment]: <> (- /update?id=*, обновить данные паспорта)
-
-[comment]: <> (- /delete?id=*, удалить данные паспорта)
-
-[comment]: <> (- /find, загрузить все паспорта)
-
-[comment]: <> (- /find?seria=*, загрузить паспорта с заданной серией)
-
-[comment]: <> (- /unavaliabe, загрузить паспорта чей срок вышел)
-
-[comment]: <> (- /find-replaceable, загрузить паспорта, которые нужно заменить в ближайшие 3 месяца)
-
-2. Создать второй сервис, используя Spring Boot. Данный сервис должен вызывать методы первого сервиса используя RestTemplate
+- /save, save passport details
+- /update?id=*, update passport details
+- /delete?id=*, delete passport details
+- /find?seria=*, find passports with a given series
+- /unavaliabe, find expired passports
+ /find-replaceable, find passports that need to be replaced in the next 3 months
