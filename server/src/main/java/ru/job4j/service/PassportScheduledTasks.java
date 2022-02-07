@@ -1,7 +1,6 @@
 package ru.job4j.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,17 +15,20 @@ import java.time.LocalDateTime;
 @Slf4j
 public class PassportScheduledTasks {
 
-    @Autowired
-    private KafkaTemplate<Integer, MailMessage> kafkaTemplate;
+    private final KafkaTemplate<Integer, MailMessage> kafkaTemplate;
 
-    @Autowired
-    private PassportRepository repo;
+    private final PassportRepository repo;
 
     @Value("${passport.app.validity-years}")
     private Integer validityYears;
 
     @Value("${spring.kafka.default-topic}")
     private String topic;
+
+    public PassportScheduledTasks(KafkaTemplate<Integer, MailMessage> kafkaTemplate, PassportRepository repo) {
+        this.kafkaTemplate = kafkaTemplate;
+        this.repo = repo;
+    }
 
     @Scheduled(fixedDelayString = "${scheduling.passport.interval}")
     public void notifyExpired() {

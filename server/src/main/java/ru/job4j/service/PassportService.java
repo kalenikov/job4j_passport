@@ -1,6 +1,5 @@
 package ru.job4j.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.job4j.domain.Passport;
@@ -14,11 +13,14 @@ import java.util.Optional;
 @Service
 public class PassportService {
 
-    @Autowired
-    private PassportRepository repo;
+    private final PassportRepository repo;
 
     @Value("${passport.app.validity-years}")
     private Integer validityYears;
+
+    public PassportService(PassportRepository repo) {
+        this.repo = repo;
+    }
 
     public List<Passport> findAll() {
         return repo.findAll();
